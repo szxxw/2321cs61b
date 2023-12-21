@@ -156,14 +156,19 @@ public class LinkedListDequeTest {
     public void getIndexRecursionTest() {
 
 
-        LinkedListDeque<String>  lld1 = new LinkedListDeque<String>();
+        LinkedListDeque<Object>  lld1 = new LinkedListDeque<>();
 
-        lld1.addFirst("a");
+        lld1.addFirst(1);
         lld1.addFirst("b");
         lld1.addLast("c");
         lld1.printDeque();
+
+        Iterator<Object> myset = lld1.iterator();
+        assertEquals("b", myset.next());
+        assertEquals(1, myset.next());
         assertEquals(null, lld1.getRecursive(4));
         assertEquals("c", lld1.getRecursive(2));
+
 
     }
 }
