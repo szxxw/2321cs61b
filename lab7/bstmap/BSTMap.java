@@ -1,7 +1,6 @@
 package bstmap;
 
 
-
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -155,7 +154,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         else if (containsKey(key) && get(key) == value) return delete(key);
         else return null;
     }
-    public V delete(K key) {
+    private V delete(K key) {
         if (key == null) throw new IllegalArgumentException("calls delete() with a null key");
         V myvalue = get(key);
         root = delete(root, key);
@@ -181,12 +180,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
     }
 
-    public Node min(Node x) {
+    private Node min(Node x) {
         if( x.left == null) return x;
         else return min(x.left);
     }
 
-    public Node deleteMin(Node x) {
+    private Node deleteMin(Node x) {
         if(x.left == null) return x.right;
         x.left = deleteMin(x.left);
         x.size = 1 + size(x.left) + size(x.right);
